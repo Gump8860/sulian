@@ -1,68 +1,68 @@
 <!DOCTYPE html>
-生日快乐啊！这一天一定要开开心心的！可能你的这一天会非常忙碌吧，载歌载舞来形容肯定也不过分哈哈哈，那我就不打扰你啦！玩的开心一点！可不许偷偷掉眼泪……
-
-（青春的眼泪很珍贵喔）最好充斥一些难忘的记忆呢！
-
-🎊🎊🎊最后再祝你生日快乐！！🎉🎉🎉
-      </div>
-
-      <div class="footer">
-        —— 来自一个一直都在的人
-      </div>
-
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 生日快乐！</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 彩带容器 -->
+    <div id="confetti-container"></div>
+    
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <button id="musicToggle" class="music-btn">🎵</button>
+    
+    <!-- 主内容 -->
+    <div class="container">
+        <div class="card">
+            <h1 class="title">🎂 生日快乐！🎂</h1>
+            
+            <div class="message">
+                <p>哈喽！哈喽！哈喽！生日快乐啊！🎂</p>
+                
+                <p>有没有觉得很惊喜来着！虽然我们没见过面吧…也一直不知道你的名字（我觉得肯定是一大串吧…那考试的时候会不会很麻烦…不过日常叫名字应该像英语一样叫后面的名字，就不叫姓氏了吧）…不过这都不重要！！！</p>
+                
+                <p>在我眼里……在我心里……<span class="highlight">你就是一位最最干净…最最善良…真的很纯粹的女孩子！</span></p>
+                
+                <p>我也一直听你诉说着你班里发生的那些点点滴滴，那些勾心斗角…我们不能改变别人的做法别人的观点…同样身为小蝴蝶我们，在前期没有能力只能默默忍受…很心疼你…但是是可忍孰不可忍！！一些原则性的问题我们坚决不会逃避的！！</p>
+                
+                <p><span class="highlight">我希望你能一直保持初心！真的！很可贵！！</span>我喜欢你那一份纯真！！好干净！！你的声音也特别好听！！真的很干净！！</p>
+                
+                <p class="ps">（ps：不太对劲，怎么好像要发展到情书一样）</p>
+                
+                <p>其实想多夸夸你啊…不过优秀的你应该不太需要吧 😊</p>
+                
+                <p><span class="highlight">生日快乐！不知道名字的网友！！</span>保持住心里的那一份纯真那一份美好！很可贵！</p>
+                
+                <p>如果高中磨碎了你心底那一份快乐…我觉得很不值当…我们也要尽自己的努力去守护自己不是嘛！还有最后一年！加油哟！高三的生活总归繁忙，总归辛苦…我们要有一颗勇于面对的勇气！！我相信优秀的你一定能做到的！！</p>
+                
+                <p><span class="highlight">我一直都在！</span>不顺心的事，遇到一些烂人！！就大大方方跟我说吧！！憋在心里难受，憋久了也会有问题，从点滴做起！</p>
+                
+                <p>生日快乐啊！这一天一定要开开心心的！可能你的这一天会非常忙碌吧，载歌载舞来形容肯定也不过分哈哈哈，那我就不打扰你啦！玩的开心一点！可不许偷偷掉眼泪……</p>
+                
+                <p class="final"><span class="sparkle">✨</span> 青春的眼泪很珍贵喔 <span class="sparkle">✨</span><br>最好充斥一些难忘的记忆呢！</p>
+                
+                <h2 class="ending">🎊🎊🎊 最后再祝你生日快乐！！🎉🎉🎉</h2>
+            </div>
+            
+            <div class="hearts">
+                <span>💖</span>
+                <span>💝</span>
+                <span>💗</span>
+                <span>💓</span>
+                <span>💕</span>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script>
-
-    // 星空生成
-    const stars = document.getElementById('stars');
-
-    for (let i = 0; i < 180; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-
-      star.style.left = Math.random() * 100 + 'vw';
-      star.style.top = Math.random() * 100 + 'vh';
-
-      star.style.animationDuration =
-        Math.random() * 3 + 2 + 's';
-
-      stars.appendChild(star);
-    }
-
-    // 爱心生成
-    function createHeart() {
-      const heart = document.createElement('div');
-
-      heart.className = 'heart';
-      heart.innerHTML = '❤';
-
-      heart.style.left = Math.random() * 100 + 'vw';
-
-      heart.style.fontSize =
-        Math.random() * 20 + 10 + 'px';
-
-      heart.style.animationDuration =
-        Math.random() * 5 + 5 + 's';
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
-    }
-
-    setInterval(createHeart, 500);
-
-    // 点击播放音乐
-    const bgm = document.getElementById('bgm');
-
-    document.body.addEventListener('click', () => {
-      bgm.play();
-    }, { once: true });
-
-  </script>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
