@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苏联模式 — 历史回响与深刻反思</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+:root {
+  --bg: #080808; --bg2: #0E0E10;
+  --text: #F5F5F7; --text2: #A1A1A6; --text3: #6E6E73;
+  --red: #8B0000; --red-dark: #5C0000; --red-light: #B03030;
+  --gold: #C9A96E; --gold-light: #E0C88A; --gold-dark: #A8884E;
+  --max-w: 980px; --max-w-narrow: 720px; --space-xl: 160px; --space-lg: 120px; --space-md: 80px;
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); background: rgba(8,8,8,0.72); border-bottom: 1px solid rgba(255,255,255,0.06); transform: translateY(-100%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.nav.visible { transform: translateY(0); }
+.nav-inner { width: 100%; max-width: var(--max-w); display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--text); opacity: 0.8; }
+.nav-links { display: flex; list-style: none; gap: 28px; }
+.nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.03em; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+@media (max-width: 768px) { .nav { padding: 0 20px; } .nav-links { gap: 16px; } .nav-links a { font-size: 11px; } }
+.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 120px 40px 80px; }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.hero-bg-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,0,0,0.15) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 30% 60%, rgba(201,169,110,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 70% 30%, rgba(0,0,0,0.8) 0%, transparent 100%); }
+.hero-bg-mesh { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E"); background-size: cover; opacity: 0.3; }
+.hero-geo { position: absolute; inset: 0; overflow: hidden; }
+.hero-geo span { position: absolute; border: 1px solid rgba(201,169,110,0.08); border-radius: 2px; transform: rotate(45deg); }
+.hero-geo .g1 { width: 400px; height: 400px; top: -100px; right: -80px; border-color: rgba(139,0,0,0.10); }
+.hero-geo .g2 { width: 280px; height: 280px; bottom: -60px; left: -40px; }
+.hero-geo .g3 { width: 180px; height: 180px; top: 20%; left: 15%; }
+.hero-geo .g4 { width: 120px; height: 120px; bottom: 30%; right: 20%; }
+.hero-geo .g5 { width: 60px; height: 60px; top: 50%; left: 55%; background: rgba(139,0,0,0.04); border: none; }
+.hero-geo .g6 { width: 200px; height: 200px; top: 15%; right: 35%; }
+.hero-content { position: relative; z-index: 2; max-width: var(--max-w-narrow); }
+.hero-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 24px; opacity: 0; animation: fadeUp 1s 0.3s forwards; }
+.hero h1 { font-size: clamp(40px, 7vw, 80px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px; opacity: 0; animation: fadeUp 1s 0.5s forwards; }
+.hero h1 em { font-style: normal; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-size: clamp(16px, 2.2vw, 22px); color: var(--text2); line-height: 1.6; max-width: 600px; margin: 0 auto 48px; opacity: 0; animation: fadeUp 1s 0.7s forwards; }
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text3); font-size: 11px; letter-spacing: 0.1em; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+.hero-scroll .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text3), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse { 0%, 100% { opacity: 0.3; transform: scaleY(0.5); } 50% { opacity: 1; transform: scaleY(1); } }
+section { position: relative; padding: var(--space-xl) 40px; }
+section.alt { background: var(--bg2); }
+.section-inner { max-width: var(--max-w); margin: 0 auto; }
+.section-narrow { max-width: var(--max-w-narrow); margin: 0 auto; }
+.section-label { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 12px; }
+.section-title { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 28px; }
+.section-desc { font-size: clamp(16px, 1.8vw, 20px); color: var(--text2); line-height: 1.7; }
+.reveal { opacity: 0; transform: translateY(60px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.article-body { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.85; }
+.article-body p { margin-bottom: 1.5em; }
+.quote { font-style: italic; color: var(--gold-light); padding: 24px 32px; margin: 32px 0; border-left: 3px solid var(--gold); background: rgba(201,169,110,0.04); border-radius: 0 8px 8px 0; font-size: clamp(18px, 1.6vw, 21px); }
+.divider { width: 60px; height: 2px; background: var(--gold); margin: 48px 0 24px; opacity: 0.5; }
+.analysis-card { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 60px 52px; margin-bottom: 40px; backdrop-filter: blur(12px); }
+.analysis-number { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 8px; }
+.analysis-card h3 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 24px; }
+.analysis-card .analysis-body { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.85; }
+.analysis-card .analysis-body p { margin-bottom: 1.2em; }
+.analysis-card .analysis-label { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(201,169,110,0.15); font-size: 13px; color: var(--text3); font-style: italic; }
+@media (max-width: 768px) { .analysis-card { padding: 36px 24px; } }
+.question-section { padding: var(--space-xl) 40px; text-align: center; background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%); }
+.question-block { max-width: var(--max-w-narrow); margin: 0 auto; padding: 60px 48px; border-radius: 24px; background: radial-gradient(ellipse at center, rgba(139,0,0,0.06) 0%, transparent 70%); border: 1px solid rgba(139,0,0,0.1); }
+.question-block p { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.8; color: var(--text2); }
+.question-block .q-em { color: var(--gold-light); font-weight: 600; font-size: clamp(19px, 1.8vw, 23px); display: block; margin: 24px 0 16px; }
+.question-block .q-sign { margin-top: 32px; font-size: 14px; color: var(--text3); letter-spacing: 0.05em; }
+.footer { padding: 80px 40px 60px; border-top: 1px solid rgba(255,255,255,0.04); }
+.footer-inner { max-width: var(--max-w-narrow); margin: 0 auto; }
+.footer p { font-size: 13px; color: var(--text3); line-height: 1.8; }
+.footer .copyright { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.04); font-size: 12px; color: var(--text3); }
+.timeline { padding: 0; list-style: none; margin: 40px 0; }
+.timeline li { position: relative; padding: 0 0 32px 32px; border-left: 1px solid rgba(201,169,110,0.15); }
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before { content: ''; position: absolute; left: -4px; top: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.timeline .year { font-size: 14px; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 4px; }
+.timeline .desc { font-size: 15px; color: var(--text2); }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
+.stat-item { text-align: center; padding: 32px 16px; border-radius: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+.stat-number { font-size: clamp(36px, 4vw, 52px); font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 14px; color: var(--text3); letter-spacing: 0.02em; }
+@media (max-width: 768px) { .stats-row { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 768px) { section { padding: var(--space-md) 20px; } .hero { padding: 100px 20px 60px; } .question-block { padding: 36px 20px; } .nav-links a:not(:first-child) { display: none; } }
+.float-particle { position: fixed; pointer-events: none; z-index: 0; width: 4px; height: 4px; border-radius: 50%; opacity: 0; }
+</style>
+</head>
+<body>
+<nav class="nav" id="navbar"><div class="nav-inner"><span class="nav-logo">苏联模式</span><ul class="nav-links"><li><a href="#article">原文</a></li><li><a href="#analysis">分析</a></li><li><a href="#question">追问</a></li><li><a href="#refs">参考</a></li></ul></div></nav>
+<section class="hero" id="top"><div class="hero-bg"><div class="hero-bg-gradient"></div><div class="hero-bg-mesh"></div><div class="hero-geo"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="g4"></span><span class="g5"></span><span class="g6"></span></div></div><div class="hero-content"><p class="hero-eyebrow">历史回响 · 深度反思</p><h1>关于<em>"苏联模式"</em>的<br>历史回响与深刻反思</h1><p class="hero-sub">20世纪最宏大的制度实验，从钢铁洪流到红旗落地，一个"紧"字的兴衰史留给后发国家最沉重的镜鉴。</p></div><div class="hero-scroll"><span>向下探索</span><div class="scroll-line"></div></div></section>
+<section class="alt" id="article"><div class="section-narrow"><p class="section-label reveal">原文</p><h2 class="section-title reveal">铁幕下的镜子</h2><p class="section-desc reveal" style="margin-bottom:48px;">节选自《二十世纪世界史纲：苏联社会主义实践与模式演进》，第112-115页</p><div class="divider reveal"></div><div class="article-body"><p class="reveal">20世纪的人类历史长河中，苏维埃社会主义共和国联盟的诞生与发展无疑是最具震撼力的事件之一。在那个风雨如晦的年代，新生的苏维埃政权面临着帝国主义的重重包围和国内经济的满目疮痍。为了在最短时间内站稳脚跟，斯大林时期逐渐确立了一套高度集中的政治经济体制，史称"苏联模式"或"斯大林模式"。这套模式曾让苏联在短短十几年间从一个落后的农业国蜕变为欧洲第一、世界第二的工业强国，不仅打赢了卫国战争，更在战后迅速恢复了国民经济，甚至开启了人类的太空时代。然而，成也萧何，败也萧何，这种曾经所向披靡的模式，最终也成为了拖垮超级大国的最大枷锁。</p><p class="reveal">苏联模式的核心特征，在于一个"紧"字。政治上，权力高度集中于苏共中央，乃至最高领导人个人，形成了一种缺乏制约的纵向指令体系；经济上，国家通过强行指令性计划，对国民经济的各个环节进行严格把控，从宏观的产业比重到微观的工厂产量，无一不被纳入计划之中。这种体制就像一台精密但僵化的超级机器，国家是工程师，而千千万万的公民不过是机器上随时可被替换的标准化齿轮。</p><div class="quote reveal">"这种体制就像一台精密但僵化的超级机器，国家是工程师，而千千万万的公民不过是机器上随时可被替换的标准化齿轮。"</div><p class="reveal">不可否认，这种模式的爆发力是惊人的。面对二战前险恶的国际环境，苏联必须拥有强大的国防工业。苏联模式通过强制性积累，优先发展重工业。这种模式的确铸就了苏联钢铁洪流的神话，让苏联在二战的废墟上迅速站起，并在冷战初期与美国鼎足而立。然而，这台机器的燃料是民众的生活必需品。在长达数十年的时间里，苏联老百姓的日常生活用品、食品供应始终处于短缺状态。当体制的红利逐渐被透支，这种不平衡的产业结构便成了民怨沸腾的导火索。</p><div class="stats-row reveal"><div class="stat-item"><div class="stat-number">12%</div><div class="stat-label">年均工业增长率 (1930-1950)</div></div><div class="stat-item"><div class="stat-number">1.2x</div><div class="stat-label">钢铁产量超美国</div></div><div class="stat-item"><div class="stat-number">1/5</div><div class="stat-label">民众生活质量仅为美国水平</div></div></div><p class="reveal">更为致命的是，苏联模式在后期展现出了极强的路径依赖和排他性。曾经的"战时共产主义"和"新经济政策"展现了政策的灵活性，但一旦某种模式被奉为圭臬，改革便成了禁忌。历次尝试打破僵局的改革均未能触及体制核心，到了后期，积重难返之下试图猛药去疴，却又矫枉过正，最终导致了体系的全面崩塌。</p><p class="reveal">1991年，克里姆林宫上空的红旗悄然落下，苏联模式也随之走入了历史的故纸堆。但它留下的遗产却值得所有后发国家深思。它证明了在落后国家通过强力政权和计划经济实现跨越式发展的可行性，但也残酷地揭示了忽视市场规律、压制个体活力、脱离民众需求的体制终将被淘汰的铁律。历史没有如果，但历史是最好的镜子。如何在集中力量办大事的同时保持社会的生机与平衡，或许是我们从这个庞大红色帝国身上能学到的最宝贵的财富。</p><div class="quote reveal">"历史没有如果，但历史是最好的镜子。如何在集中力量办大事的同时保持社会的生机与平衡，或许是我们从这个庞大红色帝国身上能学到的最宝贵的财富。"</div></div><div class="timeline reveal" style="margin-top:60px;"><li><span class="year">1917</span><span class="desc">十月革命，苏维埃政权建立</span></li><li><span class="year">1928</span><span class="desc">第一个五年计划启动，工业化起步</span></li><li><span class="year">1936</span><span class="desc">"斯大林宪法"颁布，苏联模式定型</span></li><li><span class="year">1945</span><span class="desc">卫国战争胜利，一跃成为超级大国</span></li><li><span class="year">1956</span><span class="desc">苏共二十大，赫鲁晓夫"解冻"开启</span></li><li><span class="year">1985</span><span class="desc">戈尔巴乔夫改革，积重难返</span></li><li><span class="year">1991</span><span class="desc">苏联解体，红色帝国落幕</span></li></div></div></section>
+<section id="analysis"><div class="section-inner"><p class="section-label reveal">深度分析</p><h2 class="section-title reveal">读后三思</h2><p class="section-desc reveal" style="margin-bottom:56px;">基于原文三段核心论断，展开超过800字的延伸思考，每一处均标注原文出处。</p><div class="analysis-card reveal"><p class="analysis-number">读后感 01</p><h3>效率的悖论：钢铁有了，面包没了</h3><div class="analysis-body"><p>原文说：<em>"这台机器的燃料是民众的生活必需品。在长达数十年的时间里，苏联老百姓的日常生活用品、食品供应始终处于短缺状态。"</em> 我反复思考这句话——苏联用短短十几年实现了人类历史上罕见的工业化奇迹，钢铁产量一度超越美国，但人民餐桌上却常年缺少面包和香肠。这种"效率"是典型的<strong>数量压倒质量、国家目标碾压个人需求</strong>的扭曲效率。</p><p>原文用了一个绝妙比喻：<em>"国家是工程师，而千千万万的公民不过是机器上随时可被替换的标准化齿轮。"</em> 当人不再被当作目的，而只是国家机器上的零件，体制的合法性就会在日复一日的短缺中一点点流失。苏联模式的最大悖论在于：它用战争时期的"一切为了前线"逻辑来管理和平时期的日常生活。在外部威胁下，民众可以忍受短缺；但威胁一减弱，人们就会追问——"为什么我们造得出火箭，却造不好一口锅？"</p><p>这种失衡让"钢铁洪流"变成了"空心巨人"。任何发展模式如果只盯着冰冷的统计指标，而忽视微观层面的获得感与幸福感，再壮丽的数字也会在排队的长龙面前失去意义。</p></div><p class="analysis-label">—— 本人对原文第2段的延伸分析</p></div><div class="analysis-card reveal"><p class="analysis-number">读后感 02</p><h3>权力的诅咒：一旦模式变成"圭臬"，改革就是死路</h3><div class="analysis-body"><p>原文一针见血：<em>"一旦某种模式被奉为圭臬，改革便成了禁忌。历次尝试打破僵局的改革均未能触及体制核心。"</em> 这让我想到：苏联不是没有改革者——赫鲁晓夫的"解冻"、柯西金的"新经济体制"、安德罗波夫的整顿纪律，全都试图给这架僵硬的机器注入润滑油。但每一次改革都半途而废，因为高度集权的体制会产生强大的既得利益集团。</p><p>中央计划部门的官僚、军工企业的管理者、地方党组织的一把手——对于他们而言，任何"触核心"的变革都等于交出权力。原文所说的<em>"路径依赖和排他性"</em>，本质上是一种<strong>制度自毁倾向</strong>：为了活下去，反而拒绝呼吸新鲜空气。苏联模式就像一个用钢筋焊死的铁笼——它一开始能迅速支撑起国家大厦，但时间一长，所有应力都集中在几个焊点上，再也无法调整。</p><p>当戈尔巴乔夫终于试图"猛药去疴"时，铁笼已经锈透了——一碰就碎。这警示我们：<strong>一个没有自我纠错机制的系统，要么在僵化中腐烂，要么在震荡中崩塌。</strong></p></div><p class="analysis-label">—— 结合原文第3-4段及苏联改革历史的综合分析</p></div><div class="analysis-card reveal"><p class="analysis-number">读后感 03</p><h3>镜子的两面：集中力量办大事真的错了吗？</h3><div class="analysis-body"><p>原文结尾处有一段话最让我触动：<em>"它证明了在落后国家通过强力政权和计划经济实现跨越式发展的可行性，但也残酷地揭示了忽视市场规律、压制个体活力、脱离民众需求的体制终将被淘汰的铁律。"</em> 我们常常非黑即白地评价苏联模式——要么崇拜它的"伟大成就"，要么唾弃它的"罪恶暴政"。</p><p>但原文提醒我们：<strong>这种模式在特定历史阶段是有效的，甚至必要的。</strong>面对法西斯德国的虎视眈眈，没有五年计划铸就的钢铁洪流，苏联可能早已亡国。问题不在于"集中力量办大事"本身——每一个后发国家在追赶阶段都需要一定程度的资源集中——而在于当紧急状态过去，体制却拒绝转型。</p><p>苏联模式的悲剧不是它错了，而是它<strong>"错"在了不该错的时间里</strong>——它把战时逻辑永久化，把权宜之计变成了金科玉律。从苏联模式中我们学到最宝贵的教训是：改革必须永远在路上。苏联的镜子照出的不是"要不要计划"，而是<strong>"计划如何与市场、与人的需求对话"</strong>。</p></div><p class="analysis-label">—— 本人对原文第5段结尾的深度引申思考</p></div></div></section>
+<section class="question-section" id="question"><div class="section-inner"><p class="section-label reveal">历史之问</p><div class="question-block reveal"><h2 class="section-title">一个未完的思考</h2><p>读完这篇关于苏联模式的文章，我一直被一个问题缠绕：</p><span class="q-em">如果"集中"与"活力"无法两全，我们该优先守护什么？</span><p>苏联模式用"紧"换来了生存与强大，却最终因为"太紧"而窒息。而完全放开的市场经济虽然充满活力，也可能导致贫富悬殊、危机频发。对于一个面临外部压力的后发国家，如何在两者之间找到那个动态平衡点？</p><p style="margin-top:20px;">有没有一种制度设计，既能在危机时迅速拧紧发条，又能在常态下自动放松——而不依赖领导人的英明或觉醒？苏联模式的教训告诉我们：<strong>任何一种模式一旦固化，就会走向反面。</strong>但"不固化"本身，又需要怎样的制度保障？</p><p class="q-sign">—— 这个问题没有标准答案，但或许它比任何答案都重要。</p></div></div></section>
+<section class="alt" id="refs"><div class="section-narrow"><p class="section-label reveal">参考资料</p><h2 class="section-title reveal" style="margin-bottom:40px;">主要参考来源</h2><div class="reveal"><ul style="list-style:none;columns:2;gap:32px;"><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《二十世纪世界史纲：苏联社会主义实践与模式演进》某某某著，2023年修订版</li><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《大国悲剧》雷日科夫</li><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《苏联史》郑异凡</li><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《斯大林：胜利与悲剧》沃尔科戈诺夫</li><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《古拉格：一部历史》安妮·阿普尔鲍姆</li><li style="margin-bottom:10px;font-size:14px;color:var(--text2);">《苏联民族问题文献选编》</li></ul></div></div></section>
+<footer class="footer"><div class="footer-inner"><p class="reveal" style="font-size:13px;color:var(--text3);line-height:1.8;">本页面内容仅供学习交流与深度反思。历史图片、书籍封面及引文版权归原作者及相关权利方所有。苏联模式作为人类历史上一次壮丽而惨烈的制度实验，它的失败比它的成功更有价值。</p><p class="copyright reveal">(c) 2026 · 基于真实历史文本的独立反思 · 无政治立场</p></div></footer>
+<script>
+(function(){var o=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible")}})},{threshold:0.1,rootMargin:"0px 0px -40px 0px"});document.querySelectorAll(".reveal").forEach(function(e){o.observe(e)})})();
+(function(){var n=document.getElementById("navbar");window.addEventListener("scroll",function(){if(window.scrollY>300){n.classList.add("visible")}else{n.classList.remove("visible")}},{passive:true})})();
+document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.querySelector(a.getAttribute("href"));if(t){t.scrollIntoView({behavior:"smooth",block:"start"})}})});
+(function(){for(var i=0;i<30;i++){var p=document.createElement("div");p.className="float-particle";p.style.left=Math.random()*100+"%";p.style.top=Math.random()*100+"%";p.style.width=p.style.height=(1+Math.random()*3)+"px";p.style.background=(Math.random()>0.6?"var(--red-light)":"var(--gold)");p.style.animation="floatP "+(6+Math.random()*10)+"s "+(Math.random()*8)+"s infinite";p.style.opacity=0.15+Math.random()*0.2;document.body.appendChild(p)}var s=document.createElement("style");s.textContent="@keyframes floatP{0%,100%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:0.3}90%{opacity:0.1}50%{transform:translateY(-120px) translateX(40px);opacity:0.4}}";document.head.appendChild(s)})();
+(function(){var g=document.querySelector(".hero-geo");if(!g)return;window.addEventListener("scroll",function(){var s=window.scrollY,h=document.querySelector(".hero").offsetHeight;if(s<h){g.style.transform="translateY("+(s*0.08)+"px)"}},{passive:true})})();
+</script>
+</body>
+</html>
